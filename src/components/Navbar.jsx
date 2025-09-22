@@ -50,16 +50,19 @@ useEffect(() => {
         >
           Sign Up
         </button>
-        <img onClick={()=> setShowMobileMenu(true)} src={assets.menu_icon} className='md:hidden w-7 cursor-pointer' alt="" />
+        <img onClick={()=> setShowMobileMenu(true)} src={assets.menu_icon}   className={`md:hidden w-7 cursor-pointer transition ${scrolled ? "filter brightness-0" : ""}`} alt="" />
       </div>
 
 
       {/* --------- Mobile Menu --------- */}
-      <div className={`md:hidden ${showMobileMenu ? 'fixed w-full' : 'w-0 h-0'}  right-0 top-0 bottom-0 overflow-hidden bg-white transition-all`}>
+      <div className={`md:hidden fixed inset-0 z-[100] bg-white min-h-dvh overscroll-contain
+              transform transition-transform duration-300
+              pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]
+              ${showMobileMenu ? "translate-x-0" : "translate-x-full"}`} role="dialog" aria-modal="true">
         <div className='flex justify-end p-6 cursor-pointer'>
-          <img onClick={()=> setShowMobileMenu(false)} src={assets.cross_icon} className='w-6' alt="" />
+          <img onClick={()=> setShowMobileMenu(false)} src={assets.cross_icon} className='w-6 cursor-pointer' alt="" />
         </div>
-        <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium'>
+        <ul className='flex flex-col items-center gap-2 mt-5 px-5 text-lg font-medium text-black'>
           <a onClick={()=> setShowMobileMenu(false)} href="#Header" className='px-4 py-2 rounded-full inline-block'>Home</a>
           <a onClick={()=> setShowMobileMenu(false)} href="#About" className='px-4 py-2 rounded-full inline-block'>About</a>
           <a onClick={()=> setShowMobileMenu(false)} href="#Projects" className='px-4 py-2 rounded-full inline-block'>Projects</a>
