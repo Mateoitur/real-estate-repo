@@ -49,12 +49,20 @@ const Projects = () => {
 
       {/* Slider Buttons */}
       <div className="flex justify-end items-center mb-8">
-        <button onClick={prevProject} className="cursor-pointer p-3 bg-gray-200 rounded mr-2" aria-label="Previous Project">
+        <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 500, damping:20 }}
+        onClick={prevProject} className="cursor-pointer p-3 bg-gray-200 rounded mr-2" aria-label="Previous Project">
           <img src={assets.left_arrow} alt="Previous" />
-        </button>
-        <button onClick={nextProject} className="cursor-pointer p-3 bg-gray-200 rounded mr-2" aria-label="Next Project">
+        </motion.button>
+        <motion.button 
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 500, damping:20 }}
+        onClick={nextProject} className="cursor-pointer p-3 bg-gray-200 rounded mr-2" aria-label="Next Project">
           <img src={assets.right_arrow} alt="Next" />
-        </button>
+        </motion.button>
       </div>
 
       {/* Project Slider Container */}
@@ -66,7 +74,11 @@ const Projects = () => {
         >
           {projectsData.map((project, index) => (
             // CHANGE: add horizontal padding so spacing looks like the old gap
-            <div key={index} className="relative flex-shrink-0 w-full sm:w-1/4 px-4">
+            <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 500, damping:20 }}
+            key={index} className="relative flex-shrink-0 w-full sm:w-1/4 px-4">
               <img src={project.image} alt={project.title} className="w-full h-auto mb-14" />
               <div className="absolute left-0 right-0 bottom-5 flex justify-center">
                 <div className="inline-block bg-white w-3/4 px-4 py-2 shadow-md">
@@ -76,7 +88,7 @@ const Projects = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

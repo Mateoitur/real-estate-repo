@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {assets} from "../assets/assets"
+import { motion } from "framer-motion"
 
 const Navbar = () => {
 
@@ -43,13 +44,17 @@ useEffect(() => {
             <a href="#Projects" className={`${scrolled ? 'hover:text-gray-800' : 'hover:text-gray-300'}`}>Projects</a>
             <a href="#Testimonials" className={`${scrolled ? 'hover:text-gray-800' : 'hover:text-gray-300'}`}>Testimonials</a>
         </ul>
-        <button
-          className={`cursor-pointer hidden md:block px-8 py-2 rounded-full transition-colors duration-300 ${
-            scrolled ? "bg-black text-white hover:bg-gray-800" : "bg-white text-black hover:bg-gray-300"
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: 'spring', stiffness: 500, damping:20 }}
+
+          className={`cursor-pointer hidden md:inline-block px-8 py-2 rounded-full transition-colors duration-300 ${
+            scrolled ? "bg-black text-white" : "bg-white text-black "
           }`}
         >
           Sign Up
-        </button>
+        </motion.button>
         <img onClick={()=> setShowMobileMenu(true)} src={assets.menu_icon}   className={`md:hidden w-7 cursor-pointer transition ${scrolled ? "filter brightness-0" : ""}`} alt="" />
       </div>
 

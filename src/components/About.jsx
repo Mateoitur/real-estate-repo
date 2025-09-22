@@ -37,7 +37,11 @@ const About = () => {
                 </div>
             </div>
             <p className='my-10 max-w-lg'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-            <button className='bg-blue-500 text-white px-8 py-2 rounded'>Learn More</button>
+            <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: 'spring', stiffness: 500, damping:20 }}
+            className='bg-blue-500 text-white px-8 py-2 rounded cursor-pointer'>Learn More</motion.button>
         </div>
       </div>
     </motion.div>

@@ -16,8 +16,12 @@ const Testimonials = () => {
 
       <div className='flex flex-wrap justify-center gap-8'>
         {testimonialsData.map((testimonial, index)=>(
-          <div key={index} className='max-w-[340px] border border-zinc-200 shadow-lg rounded px-8 py-12 text-center'>
-            <img className='w-20 h-20 rounded-full mx-auto mb-4' src={testimonial.image} alt={testimonial.alt} />
+          <motion.div
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: 'spring', stiffness: 500, damping:20 }}
+          key={index} className='max-w-[340px] border border-zinc-200 shadow-lg rounded px-8 py-12 text-center'>
+            <img
+             className='w-20 h-20 rounded-full mx-auto mb-4' src={testimonial.image} alt={testimonial.alt} />
             <h2 className='text-xl text-gray-700 font-medium'>{testimonial.name}</h2>
             <p className='text-gray-500 mb-4 text-sm'>{testimonial.title}</p>
             <div className='flex justify-center gap-1 text-red-500 mb-4'>
@@ -26,7 +30,7 @@ const Testimonials = () => {
               ))}
             </div>
             <p className='text-gray-600'>{testimonial.text}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </motion.div>

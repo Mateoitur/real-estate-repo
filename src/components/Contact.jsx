@@ -59,7 +59,11 @@ const Contact = () => {
           <textarea className='w-full border border-gray-300 rounded py-3 px-4 mt-2 h-48 resize-none'
           name="Message" placeholder='Message' required></textarea>
         </div>
-        <button className='bg-blue-600 text-white py-2 px-12 mb-10 rounded cursor-pointer'>{result ? result : "Send Message"}</button>
+        <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 500, damping:20 }}
+        className='bg-blue-600 text-white py-2 px-12 mb-10 rounded cursor-pointer'>{result ? result : "Send Message"}</motion.button>
       </form>
     
     
